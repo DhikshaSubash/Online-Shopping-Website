@@ -1,0 +1,279 @@
+.admin-analytics {
+  padding: 20px;
+  background-color: transparent;
+  min-height: auto;
+}
+
+.analytics-title {
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.analytics-loading,
+.analytics-error {
+  text-align: center;
+  padding: 50px;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+/* Metrics Grid */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.metric-card {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.metric-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.metric-card.revenue {
+  border-left: 4px solid #4CAF50;
+}
+
+.metric-card.orders {
+  border-left: 4px solid #2196F3;
+}
+
+.metric-card.customers {
+  border-left: 4px solid #FF9800;
+}
+
+.metric-card.conversion {
+  border-left: 4px solid #9C27B0;
+}
+
+.metric-icon {
+  font-size: 3rem;
+  opacity: 0.8;
+}
+
+.metric-content h3 {
+  margin: 0 0 8px 0;
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.metric-value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+/* Charts Container */
+.charts-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.chart-section {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.chart-section h3 {
+  margin: 0 0 20px 0;
+  font-size: 1.5rem;
+  color: #333;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 10px;
+}
+
+.chart-wrapper {
+  height: 300px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.chart-wrapper.pie,
+.chart-wrapper.doughnut {
+  height: 250px;
+}
+
+/* Stats Row */
+.stats-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.stat-item {
+  display: flex;
+  gap: 10px;
+  padding: 10px 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.stat-label {
+  font-weight: 500;
+  color: #666;
+}
+
+.stat-value {
+  font-weight: bold;
+  color: #333;
+}
+
+/* Product Analytics */
+.product-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: start;
+}
+
+.product-list h4 {
+  margin: 0 0 15px 0;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.product-table th,
+.product-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.product-table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  color: #333;
+}
+
+.product-table tr:hover {
+  background-color: #f8f9fa;
+}
+
+/* Customer Analytics */
+.customer-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: center;
+}
+
+.customer-details h4 {
+  margin: 0 0 20px 0;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.customer-type-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  margin-bottom: 10px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.customer-type-label {
+  font-weight: 500;
+  color: #666;
+}
+
+.customer-type-value {
+  font-weight: bold;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+/* Conversion Metrics */
+.conversion-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: center;
+}
+
+.conversion-details h4 {
+  margin: 0 0 20px 0;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.conversion-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  margin-bottom: 12px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.conversion-item.highlight {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.conversion-item.highlight .conversion-label,
+.conversion-item.highlight .conversion-value {
+  color: white;
+}
+
+.conversion-label {
+  font-weight: 500;
+  color: #666;
+}
+
+.conversion-value {
+  font-weight: bold;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .product-stats-grid,
+  .customer-stats-grid,
+  .conversion-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .chart-wrapper {
+    height: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-analytics {
+    padding: 15px;
+  }
+
+  .chart-section {
+    padding: 15px;
+  }
+}

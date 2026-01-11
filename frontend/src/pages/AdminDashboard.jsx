@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import API from '../api';
+import AdminAnalytics from '../components/AdminAnalytics';
 import './AdminDashboard.css'; 
 
 function AdminDashboard() {
+  const [activeTab, setActiveTab] = useState('analytics'); // 'analytics' or 'management'
   const [users, setUsers] = useState([]);
   const [orders, setOrders] = useState([]);
   const [products, setProducts] = useState([]);
@@ -85,6 +87,31 @@ function AdminDashboard() {
         <h2>Admin Dashboard</h2>
         <button className="logout-button" onClick={logout}>Logout</button>
       </div>
+
+      {/* Tab Navigation */}
+      <div className="admin-tabs">
+        <button 
+          className={`tab-button ${activeTab === 'analytics' ? 'active' : ''}`}
+          onClick={() => setActiveTab('analytics')}
+        >
+          📊 Analytics
+        </button>
+        <button 
+          className={`tab-button ${activeTab === 'management' ? 'active' : ''}`}
+          onClick={() => setActiveTab('management')}
+        >
+          ⚙️ Management
+        </button>
+      </div>
+
+      {/* Analytics Tab */}
+      {activeTab === 'analytics' && (
+        <AdminAnalytics />
+      )}
+
+      {/* Management Tab */}
+      {activeTab === 'management' && (
+        <div className="management-content">
 
       <section>
         <h3>Add Product</h3>
@@ -197,8 +224,8 @@ function AdminDashboard() {
               {orders.map(o => (
                 <tr key={o.order_id}>
                   <td>{o.order_id}</td>
-                  <td>{o.email}</td>
-                  <td>₹{o.amount}</td>
+                  <td>{o.user_email || o.email}</td>
+                  <td>₹{o.total_price || o.amount}</td>
                   <td>{o.date}</td>
                 </tr>
               ))}
@@ -227,7 +254,9 @@ function AdminDashboard() {
             </tbody>
           </table>
         )}
-      </section>
+        </section>
+        </div>
+      )}
     </div>
   );
 }
